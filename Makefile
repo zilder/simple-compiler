@@ -1,5 +1,6 @@
 
-all: lex bison
+all: bison lex
+	$(CXX) $(CFLAGS) -o compiler main.cpp gram.tab.c lex.yy.c
 
 lex:
 	flex tokens.l
@@ -10,7 +11,10 @@ bison:
 	$(CXX) $(CFLAGS) -c gram.tab.c -o bison.o
 
 clean:
+	rm -f compiler
 	rm -f bison.o
 	rm -f lex.o
 	rm -f gram.tab.h
+	rm -f gram.tab.c
+	rm -f gram.output
 	rm -f lex.yy.c

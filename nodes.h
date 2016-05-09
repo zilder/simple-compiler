@@ -5,7 +5,7 @@
 class Node
 {
 public:
-	virtual ~Node();
+	virtual ~Node() {}
 };
 
 class Stmt : public Node
