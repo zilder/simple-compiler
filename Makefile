@@ -1,6 +1,6 @@
 
 all: bison lex
-	$(CXX) $(CFLAGS) -o compiler main.cpp gram.tab.c lex.yy.c
+	$(CXX) $(CFLAGS) -o compiler main.cpp printtree.cpp nodes.cpp gram.tab.c lex.yy.c
 
 lex:
 	flex tokens.l
