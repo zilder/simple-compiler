@@ -9,13 +9,14 @@ extern "C" int yywrap() { }
 
 %%
 
-[ tn]                 ;
+[ \t\n]                 ;
 [a-zA-Z_][a-zA-Z0-9_]*  SAVE_TOKEN; return TIDENTIFIER;
 [0-9]+                  SAVE_TOKEN; return TINTEGER;
 "=="                    return TOKEN(TCEQ);
 "!="                    return TOKEN(TCNE);
 "<="                    return TOKEN(TCLE);
 ">="                    return TOKEN(TCGE);
+";"                     return yytext[0];
 .                       printf("Unknown token!\n"); yyterminate();
 
 %%
